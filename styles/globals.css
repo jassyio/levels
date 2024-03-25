@@ -5,6 +5,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  color: black;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -22,8 +23,14 @@ body {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    background-image: url('/images/bg.jpg');
+    /* You can adjust background properties as needed */
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 }
 
@@ -74,3 +81,30 @@ textarea {
   display: flex;
   justify-content: space-between;
 }
+footer{
+  background: #8ec8df;
+}
+
+
+.App {
+  display: flex;
+  min-height: 100vh; /* Equivalent to min-h-screen in Tailwind CSS */
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url(/images/bg.jpg);
+  /* Add any other styles you want for the .App class */
+}
+
+
+.Nav {
+  display: flex;
+  height: 3rem; /* Adjust height as needed */
+  align-items: center;
+  padding: 0 1rem; /* Adjust padding as needed */
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adjust shadow as needed */
+  background: #e1d9eb;
+}
+
+
+

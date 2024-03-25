@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import calculatePrice from '../lib/priceCalculator';
 
+
 const Uploader = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [title, setTitle] = useState('');

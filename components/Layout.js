@@ -1,26 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu } from '@headlessui/react';
 import { signOut, useSession, getSession } from 'next-auth/react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import AdsPlayer from './adsPlayer'; // Import your adsPlayer.js component
+import Uploader from '../pages/uploader'; // Import your uploader.js component
 
 export default function Layout({ title, children }) {
   const [session, setSession] = useState(null);
-  const [loading, setLoading] = useState(true); // Add a loading state
+  const [loading, setLoading] = useState(true);
+  const [showUploader, setShowUploader] = useState(false); // State to control displaying uploader content
   const router = useRouter();
+
   useEffect(() => {
     getSession().then((session) => {
       setSession(session);
-      setLoading(false); // Update the loading state when the session data has been fetched
+      setLoading(false);
     });
   }, [router.asPath]);
-  // const { status, data: session } = useSession();
-  // console.log(session.user);
+
   const logoutClickHandler = () => {
     signOut({ callbackUrl: '/login' });
   };
+
+  const toggleUploader = () => {
+    setShowUploader(!showUploader);
+  };
+
   return (
     <>
       <Head>
@@ -29,15 +36,13 @@ export default function Layout({ title, children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex min-h-screen flex-col justify-between ">
+      <div className='App'>
         <header>
-          <nav className="flex h-12 items-center px-4 justify-between shadow-md">
+          <nav className='Nav'>
             <Link className="text-lg font-bold" href="/">
               Levels
             </Link>
-            <Link className="AdsPlayer" href="components\AdsPlayer.js">
-              AdsPlayer
-            </Link>
+
             {loading ? (
               'Loading..'
             ) : session?.user ? (
@@ -61,26 +66,30 @@ export default function Layout({ title, children }) {
                 </Menu.Items>
               </Menu>
             ) : (
-              <Link id="link" className="p-2" href="/login">
-                Login
-              </Link>
+              <>
+                <Link id="link" className="p-2" href="/login">
+                  Login
+                </Link>
+                <Link id="link" className="p-2" href="/uploader">
+                  upload
+                </Link>
+              </>
             )}
           </nav>
         </header>
         <div className='body'>
-
+          {/* Display AdsPlayer component when on the home page */}
+          {router.pathname === '/' && !showUploader && <AdsPlayer />}
+          {showUploader && <Uploader />}
         </div>
-        {/* <main className="container m-auto mt-4 px-4">{children}</main> */}
+        <div>
+          watch short videos and earn
+        </div>
         <main className="container m-auto mt-4 px-4">
-          {React.Children.map(children, (child) => {
-            if (React.isValidElement(child)) {
-              return React.cloneElement(child, { session, setSession });
-            }
-            return child;
-          })}
+          {children}
         </main>
         <footer className="flex h-10 justify-center items-center shadow-inner">
-          <p>Copyright © </p>
+          <p>Copyright © levels 2024 </p>
         </footer>
       </div>
     </>

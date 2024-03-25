@@ -13,7 +13,7 @@ function AdsPlayer() {
   const [disliked, setDisliked] = useState(false);
   const videoRef = useRef(null);
   const { data: session } = useSession();
-  const userId = session.user._id;
+  const userId = session?.user?._id; // Safely access session.user._id
 
   const fetchInteractionData = async (adId) => {
     // Fetch the interaction data for the current ad and user
@@ -145,6 +145,7 @@ function AdsPlayer() {
       return newIndex;
     });
   };
+
   // records the engagement with the ad and keeps count of the number of times the user has rated an ad
   const handleJackpotEntry = async (userId, adId) => {
     try {
