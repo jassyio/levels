@@ -35,6 +35,9 @@ export default function Layout({ title, children }) {
             <Link className="text-lg font-bold" href="/">
               Levels
             </Link>
+            <Link className="AdsPlayer" href="components\AdsPlayer.js">
+              AdsPlayer
+            </Link>
             {loading ? (
               'Loading..'
             ) : session?.user ? (
@@ -64,6 +67,9 @@ export default function Layout({ title, children }) {
             )}
           </nav>
         </header>
+        <div className='body'>
+
+        </div>
         {/* <main className="container m-auto mt-4 px-4">{children}</main> */}
         <main className="container m-auto mt-4 px-4">
           {React.Children.map(children, (child) => {
