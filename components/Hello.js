@@ -1,13 +1,8 @@
 import Link from 'next/link';
 import Layout from './Layout';
-<<<<<<< HEAD
-=======
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
->>>>>>> b0ceeb2d3b7215e20b7804992d258d5d7b44295e
-// components/Hello.js
 export default function Hello() {
   const router = useRouter();
   const { redirect } = router.query;
@@ -31,37 +26,18 @@ export default function Hello() {
         });
       });
   }, []);
-  return (
-<<<<<<< HEAD
-    <Layout title="landing Page">
-      <div className='page-1'>
-        <Link id='p_1 ' href="pages/login.js"> </Link>
 
-=======
+  return (
     <Layout title="Hello Page">
       <div className="font-sans min-h-screen py-2">
-        <header className="bg-gray-200 p-5 text-center">
-          <h1 className="text-2xl font-bold mb-2">
-            Watch Ads, stand a chance to Win Jackpots!
-          </h1>
-          <p className="text-lg">
-            Watch ads for a chance to win this week&apos;s jackpot of {'KSH '}
-            {jackpots.weeklyTotal}.
-          </p>
-          <Link
-            href={`/register?inviteCode=&redirect=${redirect || '/'}`}
-            className="mt-2 inline-block px-5 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-600"
-          >
-            Join Now!
-          </Link>
-        </header>
+        <div className='caurosel-containerS'>
+          {/* Carousel component or content */}
+        </div>
+
         <main className="p-5">
           <section className="jackpots flex justify-between mb-5">
             {['Joiners', 'Weekly', 'Monthly', 'Annual'].map((jackpot) => (
-              <div
-                key={jackpot}
-                className="jackpot text-center p-2 border border-gray-300 rounded"
-              >
+              <div key={jackpot} className="jackpot text-center p-2 border border-gray-300 rounded">
                 <h3 className="text-lg font-bold mb-1">{jackpot} Jackpot</h3>
                 <p className="text-base">
                   KSH
@@ -69,7 +45,6 @@ export default function Hello() {
                     {jackpots[`${jackpot.toLowerCase()}Total`]}
                   </span>
                 </p>
-
                 <Link
                   href={`/register?inviteCode=&redirect=${redirect || '/'}`}
                   className="mt-2 inline-block px-5 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-600"
@@ -80,7 +55,34 @@ export default function Hello() {
             ))}
           </section>
         </main>
->>>>>>> b0ceeb2d3b7215e20b7804992d258d5d7b44295e
+
+        {/* New div for videos */}
+        <div className="video-container-wrapper">
+          <div className="video-container p-5">
+            <video controls autoPlay>
+              <source src="/sampleAds/test1.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="video-container p-5">
+            <video controls autoPlay>
+              <source src="/sampleAds/test2.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="video-container p-5">
+            <video controls autoPlay>
+              <source src="/sampleAds/test3.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        {/* New div below the p-5 div */}
+        <div className="additional-content">
+          {/* Your content goes here */}
+        </div>
+
       </div>
     </Layout>
   );

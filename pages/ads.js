@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
 import { useSession } from 'next-auth/react';
-import Hello from '../components/hello';
+import Hello from '../components/Hello';
 import { Container, Typography, Box, Paper } from '@mui/material';
-import AdPlayer from '../components/AdsPlayer'; // Import the AdPlayer component
+import AdPlayer from '../components/AdsPlayerds'; // Import the AdPlayer component
 
 function Ads() {
   const { data: session } = useSession();

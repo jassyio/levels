@@ -84,27 +84,190 @@ textarea {
 footer{
   background: #8ec8df;
 }
-
-
 .App {
   display: flex;
-  min-height: 100vh; /* Equivalent to min-h-screen in Tailwind CSS */
+  min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
   background-image: url(/images/bg.jpg);
-  /* Add any other styles you want for the .App class */
+  background-size: cover;
 }
-
 
 .Nav {
   display: flex;
-  height: 3rem; /* Adjust height as needed */
+  height: 5rem;
   align-items: center;
-  padding: 0 1rem; /* Adjust padding as needed */
+  padding: 1rem;
   justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adjust shadow as needed */
-  background: #e1d9eb;
+  background: #f7f4f4;
+}
+
+.caurosel-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 35vh;
+  background: #ddd6d6;
+  padding: 5px;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.carousel-item {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  transition: transform 1s ease-in-out; /* Smooth transition effect */
+}
+.carousel-container.animated {
+  animation: carousel-animation 20s infinite linear; /* Adjust animation duration and timing */
+}
+
+@keyframes carousel-animation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-calc(100% / 4)); /* Adjust based on number of images and spacing */
+  }
+}
+
+.carousel-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media query for mobile screens (adjust breakpoint as needed) */
+/* Media query for tablets */
+@media (min-width: 768px) {
+  /* Add tablet-specific styles here */
+}
+
+/* Media query for larger screens */
+@media (min-width: 1024px) {
+  /* Add larger screen-specific styles here */
+}
+
+  .carousel-image {
+    margin: 0px; /* Add margin for mobile */
+    padding: 0px;
+  }
+
+.border-box {
+  border: 1px solid #ddd; /* Adjust border color as needed */
+  padding: 10px; /* Adjust padding as needed */
 }
 
 
 
+@keyframes flameEffect {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(1.2);
+  }
+}
+/* Add this CSS code to your existing styles or create a new CSS file */
+
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.intro {
+  text-align: center;
+  height: 25vh;
+  font-size: 2em; /* Adjust font size for smaller screens */
+}
+
+.icons img {
+  width: 20px; /* Adjust icon size for smaller screens */
+}
+
+.icons span {
+  font-size: 1rem;
+  font-weight: bold; /* Adjust font size for smaller screens */
+}
+
+
+.website-name {
+  margin-right: 0.5rem; /* Adjust spacing between website name and icon */
+  font-weight: bold; /* Make the website name bold */
+  font-size: 1.2rem; /* Increase the font size */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Apply a modern font */
+  color: #333; /* Set the color of the website name */
+}
+/* styles.css */
+.home-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.home-text {
+  margin-left: 4px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-pointer:hover {
+  color: blue; /* Change color on hover as needed */
+}
+.p-5 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: #fff;
+  margin: 2px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .p-5 {
+    justify-content: flex-start; /* Align items to the start of the flex container */
+  }
+}
+/* Style for video container wrapper */
+.video-container-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Style for video containers */
+.video-container {
+  width: calc(33.33% - 20px); /* 33.33% width with 20px margin */
+  margin: 10px;
+}
+
+/* Style for video */
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .video-container {
+    width: calc(100% - 20px); /* Full width with 20px margin */
+  }
+}
+/* CSS for small screens (e.g., phones) */
+/* CSS for small screens (e.g., phones) */
+/* CSS for small screens (e.g., phones) */
+@media screen and (max-width: 768px) {
+  .jackpots {
+    flex-direction: row; /* Change flex direction to row */
+    flex-wrap: wrap; /* Allow items to wrap onto new rows */
+    justify-content: space-between; /* Space items evenly */
+  }
+
+  .jackpot {
+    width: calc(50% - 20px); /* Set the width to 50% minus margin to create two items per row */
+    margin: 10px; /* Add margin between items */
+  }
+}
